@@ -8,13 +8,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
-  position: absolute;
-  width: 100%;
 }
 
 .h1-before {
+  position: relative;
+  top: 0;
+  font-size: 40px;
   color: rgb(253, 230, 95);
   -webkit-transition: .8s;
   transition: .5s ease-in-out;
@@ -83,6 +83,23 @@
   -webkit-transition: .5s;
   transition: .5s;
 }
+
+/* .left {
+  animation: left .5s;
+}
+
+.right {
+  animation: right .5s;
+}
+
+@keyframes left {
+  from {transform: rotate(-360deg);}
+  to {transform: rotate(0deg);}
+}
+@keyframes right {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(-360deg);}
+} */
 
 input:checked + .slider {
   background-color: #945cfc;

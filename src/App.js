@@ -50,7 +50,7 @@ class App extends React.Component {
   }
 
   flip() {
-    var flip = document.getElementById("main-h1");
+    let flip = document.getElementById("main-h1");
     
     if (this.state.day) {
       flip.classList.add("flip");
@@ -71,8 +71,21 @@ class App extends React.Component {
     }
   }
 
+  roll() {
+    let roll = document.getElementById("logo");
+
+    if (this.state.day) {
+      roll.classList.remove("right")
+      roll.classList.add("left")
+    }
+    else {
+      roll.classList.remove("left")
+      roll.classList.add("right")
+    }
+  }
+
   bodyChange() {
-    if(this.state.day) {
+    if (this.state.day) {
       document.body.style.backgroundColor = "hsl(219, 44%, 78%)";
     }
     else {
@@ -93,6 +106,7 @@ class App extends React.Component {
             <input type="checkbox" onClick={() => {
             this.clickEvent()
             this.flip()
+            this.roll()
             this.textFlip();
           }}/>
             <span className="slider"><img id="logo" src={this.sunOrMoon()} alt="logo" /></span>
