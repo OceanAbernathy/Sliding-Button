@@ -8,6 +8,7 @@
   right: 0;
   bottom: 0;
   top: 0;
+  height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +18,7 @@
 
 .h1-before {
   position: relative;
+  margin-top: 0;
   top: 0;
   font-size: 40px;
   color: rgb(253, 230, 95);
