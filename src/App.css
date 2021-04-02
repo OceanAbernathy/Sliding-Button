@@ -3,7 +3,11 @@
 }
 
 .App-header {
-  min-height: 100vh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -72,7 +76,7 @@
   transition: .5s;
 }
 
-.slider img {
+.slider svg {
   position: absolute;
   content: "";
   border-radius: 50%;
@@ -84,28 +88,49 @@
   transition: .5s;
 }
 
-/* .left {
+#svg-div {
+  visibility: hidden;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 1.5s;
+  animation: grow .6s;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.left {
+  fill: white;
   animation: left .5s;
 }
 
 .right {
+  fill: black;
   animation: right .5s;
 }
 
 @keyframes left {
-  from {transform: rotate(-360deg);}
-  to {transform: rotate(0deg);}
+  from {transform: translateX(100px) rotate(-360deg);}
+  to {transform: translateX(300px) rotate(0deg);}
 }
+
 @keyframes right {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(-360deg);}
-} */
+  from {transform: translateX(200px) rotate(0deg);}
+  to {transform: translateX(0) rotate(-360deg);}
+}
 
 input:checked + .slider {
   background-color: #945cfc;
 }
 
-input:checked + .slider img {
+input:checked + .slider svg {
   -webkit-transform: translateX(300px);
   -ms-transform: translateX(300px);
   transform: translateX(300px);

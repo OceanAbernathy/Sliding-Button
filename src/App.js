@@ -1,6 +1,6 @@
 import React from 'react';
-import sun from './sun.svg'
-import moon from './moon.svg'
+import Sun from './Components/Sun.js';
+import Moon from './Components/Moon.js'
 import './App.css';
 
 class App extends React.Component {
@@ -30,10 +30,10 @@ class App extends React.Component {
   sunOrMoon() {
     let som
     if (this.state.day) {
-      som = sun
+      som = <Sun />
     }
     else {
-      som = moon
+      som = <Moon />
     }
     return som
   }
@@ -71,19 +71,6 @@ class App extends React.Component {
     }
   }
 
-  roll() {
-    let roll = document.getElementById("logo");
-
-    if (this.state.day) {
-      roll.classList.remove("right")
-      roll.classList.add("left")
-    }
-    else {
-      roll.classList.remove("left")
-      roll.classList.add("right")
-    }
-  }
-
   bodyChange() {
     if (this.state.day) {
       document.body.style.backgroundColor = "hsl(219, 44%, 78%)";
@@ -94,6 +81,10 @@ class App extends React.Component {
   }
 
   render () {
+    window.setTimeout(function() {
+      document.getElementById('svg-div').style.visibility = 'visible';
+      document.getElementById('svg-div').style.opacity = 1;
+  }, 200);
     this.bodyChange();
     
     return (
@@ -106,10 +97,9 @@ class App extends React.Component {
             <input type="checkbox" onClick={() => {
             this.clickEvent()
             this.flip()
-            this.roll()
             this.textFlip();
           }}/>
-            <span className="slider"><img id="logo" src={this.sunOrMoon()} alt="logo" /></span>
+            <span className="slider"><div id="svg-div">{this.sunOrMoon()}</div></span>
           </label>
         </header>
       </div>
